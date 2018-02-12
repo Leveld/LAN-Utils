@@ -1,0 +1,16 @@
+{
+  "name": "capstone-utils",
+  "version": "0.0.1",
+  "description": "Util functions and variables for the LAN",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leveld/LAN-Utils.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leveld/LAN-Utils/issues"
+  },
+  "homepage": "https://github.com/Leveld/LAN-Utils#readme"
+}
