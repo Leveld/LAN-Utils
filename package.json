@@ -1,6 +1,6 @@
 {
   "name": "capstone-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Util functions and variables for the LAN",
   "main": "src/index.js",
   "repository": {
