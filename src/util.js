@@ -1,9 +1,19 @@
 const USER_ERROR = 422;
 
+const IS_DEVELOPMENT = !process.env.PRODUCTION || process.env.PRODUCTION === 'false';
+const IS_PRODUCTION = !IS_DEVELOPMENT;
+
 const errorHandler = (error, req, res, next, message) => {
   message = (message || error ? error.message : undefined) || 'Oops! Looks like that doesn\'t work :(';
   const status = (error ? error.response ? error.response.status : error.status : undefined) || USER_ERROR;
   res.status(status).send(error && error.response ? error.response.data : { error: error ? error.stack : null, message });
+};
+
+const throwError = (name, message, status = USER_ERROR) => {
+  const error = new Error(message);
+  error.name = name;
+  error.status = status;
+  throw error;
 };
 
 const asyncMiddleware = cb =>
@@ -14,7 +24,7 @@ let frontServerIP = '';
 let apiServerIP   = '';
 let authServerIP  = '';
 let dbServerIP    = '';
-if (!process.env.PRODUCTION) {
+if (IS_DEVELOPMENT) {
   frontServerIP = 'http://localhost.test:3000/';
   apiServerIP   = 'http://api.localhost.test:3001/';
   authServerIP  = 'http://auth.localhost.test:3002/';
@@ -26,12 +36,25 @@ if (!process.env.PRODUCTION) {
   dbServerIP    = 'http://db.leveld.com:3003/';
 }
 
+const logger = function (...messages) {
+  if (IS_DEVELOPMENT)
+    messages.forEach(message => console.log(message));
+};
+logger.log =   (...messages) => IS_DEVELOPMENT ? logger(...messages) : undefined;
+logger.info =  (...messages) => IS_DEVELOPMENT ? messages.forEach(message => console.info(message))  : undefined;
+logger.warn =  (...messages) => IS_DEVELOPMENT ? messages.forEach(message => console.warn(message))  : undefined;
+logger.error = (...messages) => IS_DEVELOPMENT ? messages.forEach(message => console.error(message)) : undefined;
+
 module.exports = {
   USER_ERROR,
+  IS_DEVELOPMENT,
+  IS_PRODUCTION,
   errorHandler,
+  throwError,
   asyncMiddleware,
   frontServerIP,
   apiServerIP,
   authServerIP,
-  dbServerIP
+  dbServerIP,
+  logger
 };
