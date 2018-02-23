@@ -1,6 +1,6 @@
 const USER_ERROR = 422;
 
-const IS_DEVELOPMENT = !process.env.PRODUCTION || process.env.PRODUCTION === 'false';
+const IS_DEVELOPMENT = (!process.env.PRODUCTION || process.env.PRODUCTION === 'false') && process.env.NODE_ENV !== 'production';
 const IS_PRODUCTION = !IS_DEVELOPMENT;
 
 const errorHandler = (error, req, res, next, message) => {
@@ -30,10 +30,10 @@ if (IS_DEVELOPMENT) {
   authServerIP  = 'http://auth.localhost.test:3002/';
   dbServerIP    = 'http://db.localhost.test:3003/';
 } else {
-  frontServerIP = 'http://leveld.com:3000/';
-  apiServerIP   = 'http://api.leveld.com:3001/';
-  authServerIP  = 'http://auth.leveld.com:3002/';
-  dbServerIP    = 'http://db.leveld.com:3003/';
+  frontServerIP = 'http://jourdanclark.com:3000/';
+  apiServerIP   = 'http://api.jourdanclark.com:3001/';
+  authServerIP  = 'http://auth.jourdanclark.com:3002/';
+  dbServerIP    = 'http://db.jourdanclark.com:3003/';
 }
 
 const logger = function (...messages) {
