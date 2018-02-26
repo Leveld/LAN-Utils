@@ -63,5 +63,9 @@ module.exports = {
   apiServerIP,
   authServerIP,
   dbServerIP,
-  logger
+  logger,
+  defaultUserPicture,
+  defaultCPPicture,
+  defaultBAPicture,
+  defaultMAPicture
 };
