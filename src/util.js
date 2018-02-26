@@ -25,15 +25,17 @@ let apiServerIP   = '';
 let authServerIP  = '';
 let dbServerIP    = '';
 if (IS_DEVELOPMENT) {
-  frontServerIP = 'http://localhost.test:3000/';
-  apiServerIP   = 'http://api.localhost.test:3001/';
-  authServerIP  = 'http://auth.localhost.test:3002/';
-  dbServerIP    = 'http://db.localhost.test:3003/';
+  frontServerIP  = 'http://localhost.test:3000/';
+  apiServerIP    = 'http://api.localhost.test:3001/';
+  authServerIP   = 'http://auth.localhost.test:3002/';
+  dbServerIP     = 'http://db.localhost.test:3003/';
+  googleRedirect = 'http://localhost:3002/goauth';
 } else {
-  frontServerIP = 'http://jourdanclark.com:3000/';
-  apiServerIP   = 'http://api.jourdanclark.com:3001/';
-  authServerIP  = 'http://auth.jourdanclark.com:3002/';
-  dbServerIP    = 'http://db.jourdanclark.com:3003/';
+  frontServerIP  = 'http://jourdanclark.com:3000/';
+  apiServerIP    = 'http://api.jourdanclark.com:3001/';
+  authServerIP   = 'http://auth.jourdanclark.com:3002/';
+  dbServerIP     = 'http://db.jourdanclark.com:3003/';
+  googleRedirect = 'http://jourdanclark.com:3002/goauth';
 }
 
 const logger = function (...messages) {
