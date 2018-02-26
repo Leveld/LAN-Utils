@@ -38,6 +38,10 @@ if (IS_DEVELOPMENT) {
   googleRedirect = 'http://jourdanclark.com:3002/goauth';
 }
 
+const defaultCPPicture = `${frontServerIP}images/noPhoto.jpg`;
+const defaultBAPicture = `${frontServerIP}images/noPhoto.jpg`;
+const defaultMAPicture = `${frontServerIP}images/noPhoto.jpg`;
+
 const logger = function (...messages) {
   if (IS_DEVELOPMENT)
     messages.forEach(message => console.log(message));
