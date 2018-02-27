@@ -29,7 +29,7 @@ const mapAsync = async (array, cb) => {
   const newArray = [];
 
   if (!Array.isArray(array))
-    return;
+    return [];
 
   for (let i = 0; i < array.length; i++) {
     newArray[i] = await cb(array[i], i);
