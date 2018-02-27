@@ -16,6 +16,51 @@ const throwError = (name, message, status = USER_ERROR) => {
   throw error;
 };
 
+const forEachAsync = async (array, cb) => {
+  if (!Array.isArray(array))
+    return;
+
+  for (let i = 0; i < array.length; i++) {
+    await cb(array[i], i);
+  }
+};
+
+const mapAsync = async (array, cb) => {
+  const newArray = [];
+
+  if (!Array.isArray(array))
+    return;
+
+  for (let i = 0; i < array.length; i++) {
+    newArray[i] = await cb(array[i], i);
+  }
+
+  return newArray;
+};
+
+const reduceAsync = async (array, cb, ...args) => {
+  if (!Array.isArray(array))
+    return;
+
+  if (array.length === 1)
+    return array[0];
+
+  let returnValue;
+  let startIndex = 0;
+  if (args.length > 0) {
+    returnValue = args[0];
+  } else {
+    returnValue = array[0];
+    startIndex++;
+  }
+
+  for (let i = startIndex; i < array.length; i++) {
+    returnValue = await cb(returnValue, array[i], i);
+  }
+
+  return returnValue;
+};
+
 const asyncMiddleware = cb =>
   (req, res, next) =>
     Promise.resolve(cb(req, res, next)).catch(error => errorHandler(error, req, res, next));
@@ -67,5 +112,8 @@ module.exports = {
   defaultUserPicture,
   defaultCPPicture,
   defaultBAPicture,
-  defaultMAPicture
+  defaultMAPicture,
+  forEachAsync,
+  mapAsync,
+  reduceAsync
 };
