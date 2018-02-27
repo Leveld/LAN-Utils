@@ -108,6 +108,7 @@ module.exports = {
   apiServerIP,
   authServerIP,
   dbServerIP,
+  googleRedirect,
   logger,
   defaultUserPicture,
   defaultCPPicture,
