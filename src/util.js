@@ -97,6 +97,28 @@ logger.info =  (...messages) => IS_DEVELOPMENT ? messages.forEach(message => con
 logger.warn =  (...messages) => IS_DEVELOPMENT ? messages.forEach(message => console.warn(message))  : undefined;
 logger.error = (...messages) => IS_DEVELOPMENT ? messages.forEach(message => console.error(message)) : undefined;
 
+const waitAsync = ms =>
+  new Promise((resolve, reject) => setTimeout(() => resolve(), ms));
+
+const parallelAsync = (...functions) =>
+  Promise.all(functions.map((func) => func()));
+
+const zip = (...items) => {
+  const zip = [];
+  let arrcount = 0;
+  items.forEach((item) => item.length > arrcount ? arrcount=item.length : null);
+  for(let i = 0; i < arrcount; i++){
+    const arrItem = new Array(items.length);
+    zip.push(arrItem);
+  }
+  for(let i = 0; i < items.length; i++){
+    for(let j = 0; j < arrcount; j++){
+      zip[j][i] = items[i][j];
+    }
+  }
+  return zip;
+}
+
 module.exports = {
   USER_ERROR,
   IS_DEVELOPMENT,
@@ -116,5 +138,8 @@ module.exports = {
   defaultMAPicture,
   forEachAsync,
   mapAsync,
-  reduceAsync
+  reduceAsync,
+  waitAsync,
+  parallelAsync,
+  zip
 };
