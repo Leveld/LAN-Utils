@@ -80,7 +80,7 @@ if (IS_DEVELOPMENT) {
   apiServerIP    = 'http://api.leveld.network:3001/';
   authServerIP   = 'http://auth.leveld.network:3002/';
   dbServerIP     = 'http://db.leveld.network:3003/';
-  googleRedirect = 'http://leveld.network:3002/goauth';
+  googleRedirect = 'http://auth.leveld.network:3002/goauth';
 }
 
 const defaultUserPicture = `${frontServerIP}images/noPhoto.jpg`;
