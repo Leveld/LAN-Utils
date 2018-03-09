@@ -76,11 +76,11 @@ if (IS_DEVELOPMENT) {
   dbServerIP     = 'http://db.localhost.test:3003/';
   googleRedirect = 'http://localhost:3002/goauth';
 } else {
-  frontServerIP  = 'http://jourdanclark.com:3000/';
-  apiServerIP    = 'http://api.jourdanclark.com:3001/';
-  authServerIP   = 'http://auth.jourdanclark.com:3002/';
-  dbServerIP     = 'http://db.jourdanclark.com:3003/';
-  googleRedirect = 'http://jourdanclark.com:3002/goauth';
+  frontServerIP  = 'http://leveld.network:3000/';
+  apiServerIP    = 'http://api.leveld.network:3001/';
+  authServerIP   = 'http://auth.leveld.network:3002/';
+  dbServerIP     = 'http://db.leveld.network:3003/';
+  googleRedirect = 'http://leveld.network:3002/goauth';
 }
 
 const defaultUserPicture = `${frontServerIP}images/noPhoto.jpg`;
