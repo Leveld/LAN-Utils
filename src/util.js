@@ -1,5 +1,5 @@
 const USER_ERROR = 422;
-const BETA = true;
+const BETA = false;
 
 const IS_DEVELOPMENT = (!process.env.PRODUCTION || process.env.PRODUCTION === 'false') && process.env.NODE_ENV !== 'production';
 const IS_PRODUCTION = !IS_DEVELOPMENT;
