@@ -76,11 +76,11 @@ if (IS_DEVELOPMENT) {
   dbServerIP     = 'http://db.localhost.test:3003/';
   googleRedirect = 'http://localhost:3002/goauth';
 } else {
-  frontServerIP  = 'http://leveld.network';
-  apiServerIP    = 'http://api.leveld.network';
-  authServerIP   = 'http://auth.leveld.network';
-  dbServerIP     = 'http://db.leveld.network';
-  googleRedirect = 'http://auth.leveld.network/goauth';
+  frontServerIP  = 'http://leveld.network/';
+  apiServerIP    = 'http://api.leveld.network/';
+  authServerIP   = 'http://auth.leveld.network/';
+  dbServerIP     = 'http://db.leveld.network/';
+  googleRedirect = 'http://auth.leveld.network/goauth/';
 }
 
 const defaultUserPicture = `${frontServerIP}images/noPhoto.jpg`;
