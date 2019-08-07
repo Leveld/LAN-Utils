@@ -77,11 +77,11 @@ if (IS_DEVELOPMENT) {
   dbServerIP     = 'http://db.localhost.test:3003/';
   googleRedirect = 'http://localhost:3002/goauth';
 } else {
-  frontServerIP  = 'http://leveld.network/';
-  apiServerIP    = 'http://api.leveld.network/';
-  authServerIP   = 'http://auth.leveld.network/';
-  dbServerIP     = 'http://db.leveld.network/';
-  googleRedirect = 'http://auth.leveld.network/goauth/';
+  frontServerIP  = 'https://leveld-frontend.herokuapp.com/';
+  apiServerIP    = 'https://leveld-api.herokuapp.com/';
+  authServerIP   = 'http://leveld-auth.herokuapp.com/';
+  dbServerIP     = 'http://leveld-db.herokuapp.com/';
+  googleRedirect = 'http://leveld-auth.herokuapp.com/goauth/';
 }
 
 const defaultUserPicture = `${frontServerIP}images/noPhoto.jpg`;
